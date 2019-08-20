@@ -62,6 +62,7 @@ public class PresidentGame {
         Card[] currentMove;
         int topOfPile = (pile.size() - 1);
         int turn = (int)(Math.random()*NUM_OF_PLAYERS);//someone randomly goes first
+        String[] pres = new String[NUM_OF_PLAYERS];
         
         if (players[turn].getType().equals("RealPlayer") ) {//prompt for player
             System.out.printf("Play card(s) on "+ Arrays.toString(pile.get(topOfPile)));
@@ -71,7 +72,7 @@ public class PresidentGame {
         
         while(pile.size() < 52){ //game loop play until everybody has played their entire hand
             
-            turn = turn == NUM_OF_PLAYERS ? 0 : turn;
+            turn = turn == NUM_OF_PLAYERS  - 1? 0 : turn;
             
             if (players[turn].getType().equals("RealPlayer") ) {//prompt for player
                 System.out.printf("Play card(s) on "+ Arrays.toString(pile.get(topOfPile)));
